@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public"))) // Serve static files
 app.get('/api/auth/github/callback', (req, res) => {
 	console.log('Received GitHub callback on main server, redirecting to GitHub server');
 	const code = req.query.code;
-	res.redirect(`http://localhost:3002/api/auth/github/callback?code=${code}`);
+	res.redirect(`${process.env.BACKEND_URL}/api/auth/github/callback?code=${code}`);
 });
 
 app.use('/api/chatbot', chatbotRoutes);

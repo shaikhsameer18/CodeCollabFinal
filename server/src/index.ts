@@ -37,14 +37,14 @@ app.get('/health', (req, res) => {
     res.json({ status: 'ok', port: process.env.PORT || 3002, server: 'github-oauth' });
 });
 
-// Routes
+// Routes - must come before direct handlers to avoid routing conflicts
 app.use('/api/auth', authRoutes);
 
-// Add a route to handle callback requests that mistakenly go to port 3000
+// Add a route to handle callback requests that might go to the wrong port
 app.get('/api/auth/github/callback', (req, res) => {
-    console.log('Received callback on wrong port, redirecting to correct port');
+    console.log('Received callback on wrong port, redirecting to correct endpoint');
     const code = req.query.code;
-    res.redirect(`http://localhost:3002/api/auth/github/callback?code=${code}`);
+    res.redirect(`${process.env.BACKEND_URL}/api/auth/github/callback?code=${code}`);
 });
 
 // Error handling middleware
