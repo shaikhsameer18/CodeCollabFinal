@@ -1,0 +1,186 @@
+@import url("tldraw/tldraw.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    @apply bg-dark text-white font-sans h-screen w-screen overflow-hidden;
+    
+    /* Better scrollbar variables */
+    --sb-track-color: #11172A;
+    --sb-thumb-color: #0EA5E9;
+    --sb-thumb-hover: #0284C7;
+    --sb-size: 8px;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-dark;
+  }
+
+  #root {
+    @apply h-full w-full overflow-hidden;
+  }
+}
+
+@layer components {
+  .view-title {
+    @apply mb-4 w-full border-b border-primary-800/30 pb-3 text-start text-lg font-semibold;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-primary-500 to-teal-500 text-white shadow-md hover:from-primary-600 hover:to-teal-600 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-darkTertiary text-white hover:bg-darkHover focus:ring-primary-500;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply rounded-xl bg-darkSecondary p-6 shadow-xl backdrop-blur-sm border border-darkTertiary/50;
+  }
+  
+  .glass-card {
+    @apply rounded-xl bg-gradient-glass p-6 shadow-xl backdrop-blur-md border border-primary-500/10 shadow-glow;
+  }
+  
+  /* Input styles */
+  .input {
+    @apply w-full rounded-md border border-darkTertiary bg-darkSecondary px-4 py-3 text-white placeholder-gray-400 shadow-sm transition-all duration-200 hover:border-primary-500/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none;
+  }
+
+  /* Scrollable container */
+  .scrollable {
+    @apply overflow-y-auto overflow-x-hidden;
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sb-thumb-hover);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+/* Sidebar layout */
+.sidebar {
+  @apply min-w-72 transition-all duration-300 ease-in-out;
+}
+
+.sidebar.collapsed {
+  @apply min-w-16;
+}
+
+/* Editor styles */
+.cm-editor {
+  @apply max-h-full h-full rounded-b-lg overflow-hidden;
+  font-variant-ligatures: normal;
+}
+
+.cm-editor .cm-scroller {
+  @apply font-mono text-sm leading-relaxed;
+}
+
+.cm-editor .cm-gutters {
+  @apply bg-darkSecondary border-r border-darkTertiary/50;
+}
+
+.cm-editor .cm-activeLineGutter {
+  @apply bg-primary-900/20;
+}
+
+/* Animation keyframes */
+@keyframes up-down {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+
+/* GitHub Corner */
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+/* Full Page Overlay Background */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, var(--tw-color-darkPrimary), var(--tw-color-darkSecondary), var(--tw-color-darkTertiary));
+  background-size: 400% 400%;
+  animation: gradientBg 15s ease infinite;
+}
+
+@keyframes gradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Cool animation for login page elements */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Prevent content cutoff on mobile */
+@media screen and (max-width: 768px) {
+  .cm-editor {
+    max-height: calc(100vh - 64px);
+  }
+}
