@@ -17,7 +17,6 @@ import CodeMirror, {
 import { useEffect, useMemo, useState, useRef } from "react"
 import toast from "react-hot-toast"
 import { cursorTooltipBaseTheme, tooltipField } from "./tooltip"
-import { todoLinter } from "./todo-lint"
 import { motion } from "framer-motion"
 
 function Editor() {
@@ -151,7 +150,6 @@ function Editor() {
             tooltipField(filteredUsers),
             cursorTooltipBaseTheme,
             scrollPastEnd(),
-            todoLinter,
         ]
         const langExt = loadLanguage(language.toLowerCase() as LanguageName)
         if (langExt) {

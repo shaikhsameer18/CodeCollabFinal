@@ -12,7 +12,7 @@ import { useFileSystem } from '@/context/FileContext'
 import OpenFileButton from '@/components/files/OpenFileButton'
 
 export default function FilesView() {
-    const { downloadFilesAndFolders, createFile } = useFileSystem()
+    const { downloadFilesAndFolders, createFile, updateFileContent } = useFileSystem()
     const [isUploading, setIsUploading] = useState(false)
 
     const handleFilesSelected = async (files: FileList) => {
@@ -27,16 +27,13 @@ export default function FilesView() {
                 // Read the file content
                 const content = await file.text();
                 
-                // Create a FileSystemItem with content
-                const newFile = {
-                    id: uuidV4(),
-                    name: file.name,
-                    type: "file" as const,
-                    content: content
-                };
+                // Create a file in the root directory
+                const fileId = createFile('', file.name);
                 
-                // Create the file in the root directory
-                createFile('', newFile);
+                // Update the file content
+                if (fileId) {
+                    updateFileContent(fileId, content);
+                }
             });
             
             await Promise.all(promises);

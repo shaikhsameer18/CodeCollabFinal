@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: codecollab-server
+    env: node
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: GITHUB_PORT
+        value: 3000
+      - key: DEEPINFRA_API_KEY
+        value: 6atzrskz0nhBz6yYEP1lwESM9k4SRaIE
+      - key: GITHUB_CALLBACK_URL
+        value: https://codecollab-server.onrender.com/api/auth/github/callback
+      - key: FRONTEND_URL
+        value: https://codecollab.vercel.app
+      - key: BACKEND_URL
+        value: https://codecollab-server.onrender.com
+      - key: CLIENT_URL
+        value: https://codecollab.vercel.app
+      - key: SESSION_SECRET
+        value: a1ad3572a01847794b230e2c27bf8ea3ed07d75f8a9f565c29f244678329f9bd
+      - key: GITHUB_CLIENT_ID
+        value: Ov23limlTLlkFdHN49Tr
+      - key: GITHUB_CLIENT_SECRET
+        value: cc29d998c8240a8c54fe9f8262be9a277d19d61f
+      - key: MONGO_URI
+        value: mongodb+srv://your-mongodb-atlas-connection-string 
