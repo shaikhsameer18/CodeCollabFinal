@@ -136,4 +136,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [CodeMirror](https://codemirror.net/)
 - [TLDraw](https://www.tldraw.com/)
 - [OpenAI](https://openai.com/)
-- All contributors who have helped shape this project
