@@ -9,6 +9,23 @@
 
 **CodeCollab** is a powerful collaborative coding platform designed for real-time teamwork. It combines a feature-rich code editor with integrated whiteboarding, chat functionality, and GitHub integration to create a comprehensive environment for developers, educators, and teams to work together seamlessly.
 
+## 📸 Screenshots
+
+### 🔹 Homepage
+![Homepage](https://i.postimg.cc/2yPYZJ8b/ca99c1109d6f490b837de4836762e591.jpg)
+
+### 🔹 Code Editor
+![Code Editor](https://i.postimg.cc/FKZhBDG8/a92bfb91daba4869990ceb63bceac04c.jpg)
+
+### 🔹 Whiteboard
+![Whiteboard](https://i.postimg.cc/vZPs7cBw/75aa970fe3d2402393da7947bba1e3cb.jpg)
+
+### 🔹 Github
+![Github](https://i.postimg.cc/pr8WqxSY/43e56b4d19474d14a76061a5e27b4b61.jpg)
+---
+![Github](https://i.postimg.cc/pdXdxw9R/b29899bead4f4177a0d1a37e515eea1f.jpg)
+
+
 ## ✨ Key Features
 
 - **Real-time Collaborative Editing**
